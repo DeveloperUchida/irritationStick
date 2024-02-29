@@ -3,43 +3,41 @@ using UnityEngine;
 public class GameSystemScripts : MonoBehaviour
 {
     private float PlayerSpeed = 1;
-    private string answerTag = "wall";
-    /*
+
+    private new Rigidbody2D rigidbody;
+
     void Start()
     {
-
+        rigidbody = GetComponent<Rigidbody2D>();
     }
-    */
+
     // Update is called once per frame
-    //PlayerTriangleを動かすための処理コード
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(0, PlayerSpeed*Time.deltaTime, 0);
+            transform.Translate(0, PlayerSpeed * Time.deltaTime, 0);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-PlayerSpeed* Time.deltaTime, 0, 0);
+            transform.Translate(-PlayerSpeed * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(0, -PlayerSpeed*Time.deltaTime, 0);
+            transform.Translate(0, -PlayerSpeed * Time.deltaTime, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(PlayerSpeed*Time.deltaTime, 0, 0);
+            transform.Translate(PlayerSpeed * Time.deltaTime, 0, 0);
         }
     }
 
-    //プレイヤーがタグに当たった場合の処理コード
-    private void OnTrigger2D(Collider2D Collision)
+    // プレイヤーがトリガーコライダーに侵入した際の処理
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (gameObject.CompareTag(answerTag))   //タグのデータを取得して下記の処理を実行 
-        {   //決まり次第内容記入 2024/02/28　0：08追記
-            
-            Debug.LogWarning("TagDataGet!!");
+        if (other.gameObject.CompareTag("wall")) // "wall" タグを持つオブジェクトと衝突した場合
+        {
+            Debug.LogWarning("TagDataGet!");
         }
-        
     }
 }
