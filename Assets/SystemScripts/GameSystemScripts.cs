@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameSystemScripts : MonoBehaviour
 {
+    public GameObject PlayerTraiangle;
     private float PlayerSpeed = 1;
 
     private new Rigidbody2D rigidbody;
@@ -33,11 +34,8 @@ public class GameSystemScripts : MonoBehaviour
     }
 
     // プレイヤーがトリガーコライダーに侵入した際の処理
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OntriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("wall")) // "wall" タグを持つオブジェクトと衝突した場合
-        {
-            Debug.LogWarning("TagDataGet!");
-        }
+        Debug.LogWarning("Hello");
     }
 }
