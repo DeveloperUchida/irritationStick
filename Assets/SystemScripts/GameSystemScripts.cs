@@ -34,7 +34,7 @@ public class GameSystemScripts : MonoBehaviour
     }
 
     // プレイヤーがトリガーコライダーに侵入した際の処理
-    private void OntriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.LogWarning("Hello");
     }
